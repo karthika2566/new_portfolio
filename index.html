@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Karthika Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#05060a;
+      --card:rgba(255,255,255,0.03);
+      --accent1:#073e8b; /* violet */
+      --accent2:#06b6d4; /* cyan */
+      --muted:#9aa4b2;
+      --glass-border:rgba(255,255,255,0.06);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+      color:#e6eef6;
+      background:linear-gradient(180deg,#05060a 0%, #071025 45%, #061021 100%);
+      -webkit-font-smoothing:antialiased;
+      letter-spacing:0.01em;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family:Poppins, Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+      font-weight:700;
+      letter-spacing:0.01em;
+      margin-bottom:0.3em;
+      line-height:1.12;
+    }
+    h2, h3, h4, h5, h6 {
+      font-weight:600;
+    }
+    .brand, .logo {
+      font-family:Poppins, Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+    }
+    .nav a {
+      font-family:Poppins, Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+      font-weight:500;
+      letter-spacing:0.02em;
+    }
+    p, li, .btn, .lead, .card, .project, .skill, .tool, .timeline, .tl-item, .bar, .tags, .form, input, textarea {
+      font-family:Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
+      font-weight:400;
+      letter-spacing:0.01em;
+    }
+    .lead {
+      font-size:1.1em;
+      font-weight:500;
+    }
+    .btn {
+      font-weight:600;
+      letter-spacing:0.03em;
+    }
+    a{color:inherit}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+    /* Top bar */
+    header{padding:36px 0}
+    .topbar{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:Space Grotesk;font-size:18px}
+    .nav{display:flex;gap:16px;align-items:center}
+    .nav a{color:var(--muted);padding:8px 10px;border-radius:10px;font-weight:600}
+    .nav a:hover{color:white;background:rgba(255,255,255,0.02)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:36px;align-items:center;padding:20px 0}
+    .hero h1{font-family:Space Grotesk,Inter;font-size:44px;line-height:1.02;margin:0;background:linear-gradient(90deg,var(--accent2),#9b6bff);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+    .hero p.lead{color:var(--muted);margin-top:12px;font-size:16px}
+    .ctas{margin-top:20px;display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:12px;font-weight:700;border:1px solid rgba(255,255,255,0.04);cursor:pointer;transition:transform .18s ease,box-shadow .18s}
+    .btn-primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;box-shadow:0 10px 40px rgba(6,182,212,0.06)}
+    .btn-ghost{background:transparent;color:var(--muted)}
+
+    .visual{position:relative;border-radius:18px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid var(--glass-border);min-height:420px}
+    .profile-card{position:absolute;right:26px;top:26px;width:260px;border-radius:14px;padding:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid var(--glass-border);backdrop-filter:blur(6px)}
+    .profile-card img{width:64px;height:64px;border-radius:12px;object-fit:cover}
+    .mockup{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+    .device{width:88%;height:76%;border-radius:14px;background:linear-gradient(135deg,#071427,#0b1b2a);border:1px solid rgba(255,255,255,0.03);box-shadow:inset 0 0 40px rgba(0,0,0,0.45)}
+
+    /* Cards */
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border-radius:16px;padding:22px;border:1px solid var(--glass-border);margin-top:18px}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start}
+    .skill-list{display:flex;flex-direction:column;gap:12px}
+    .skill{padding:12px;border-radius:12px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+        .skill {
+          transition: transform 0.28s cubic-bezier(.22,.61,.36,1), box-shadow 0.28s cubic-bezier(.22,.61,.36,1);
+        }
+        .skill:hover, .skill:focus, .skill:active {
+          transform: scale(1.07);
+          box-shadow: 0 8px 32px 0 rgba(124,58,237,0.10), 0 2px 8px 0 rgba(6,182,212,0.08);
+          z-index: 2;
+        }
+    .skill .label{display:flex;justify-content:space-between;font-weight:700}
+    .bar{height:10px;background:rgba(255,255,255,0.03);border-radius:8px;margin-top:8px;overflow:hidden}
+    .bar .fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent1));width:0;transition:width .9s cubic-bezier(.2,.9,.2,1)}
+
+    /* Projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project{border-radius:14px;padding:14px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02);cursor:pointer;transition:transform .25s,box-shadow .25s}
+    .project:hover{transform:translateY(-8px);box-shadow:0 28px 80px rgba(2,6,23,0.6)}
+    .project-thumb{height:150px;border-radius:10px;background:linear-gradient(135deg,#081224,#0a2834);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+    .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+
+    /* Tools grid */
+    .tools{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:12px}
+    .tool{display:flex;flex-direction:column;align-items:center;padding:10px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+        .tool {
+          transition: transform 0.28s cubic-bezier(.22,.61,.36,1), box-shadow 0.28s cubic-bezier(.22,.61,.36,1);
+        }
+        .tool:hover, .tool:focus, .tool:active {
+          transform: scale(1.08);
+          box-shadow: 0 8px 32px 0 rgba(6,182,212,0.10), 0 2px 8px 0 rgba(124,58,237,0.08);
+          z-index: 2;
+        }
+    .tool img{width:36px;height:36px;object-fit:contain}
+    .tool span{font-size:12px;color:var(--muted);margin-top:8px}
+
+    /* Resume */
+    .timeline{position:relative;padding-left:18px}
+    .timeline:before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent1),var(--accent2));border-radius:6px}
+    .tl-item{position:relative;margin-bottom:20px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+    .tl-item:before{content:'';position:absolute;left:-24px;top:18px;width:12px;height:12px;border-radius:50%;background:linear-gradient(90deg,var(--accent1),var(--accent2));border:2px solid #081023}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:18px}
+    .form .field{display:flex;flex-direction:column;margin-bottom:12px}
+    input,textarea{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:white}
+    .socials{display:flex;gap:10px;margin-top:12px}
+    .socials a{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);transition:transform .15s ease}
+    .socials a:hover{transform:translateY(-6px)}
+
+    footer{color:var(--muted);text-align:center;margin:30px 0}
+
+    /* Animations */
+    .fade-in{opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease}
+    .inview{opacity:1;transform:none}
+
+    /* Responsive */
+    @media (max-width:1100px){.hero{grid-template-columns:1fr 340px}.projects-grid{grid-template-columns:repeat(2,1fr)}.tools{grid-template-columns:repeat(4,1fr)}.about-grid{grid-template-columns:1fr 320px}}
+    @media (max-width:760px){.topbar{flex-direction:column;align-items:flex-start}.hero{grid-template-columns:1fr}.profile-card{position:static;width:100%;display:flex;align-items:center;gap:12px}.projects-grid{grid-template-columns:1fr}.tools{grid-template-columns:repeat(3,1fr)}.contact-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body><div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:36px;margin-bottom:24px;position:relative;">
+
+  <!-- Profile Image Container -->
+  <div style="position:relative;width:220px;height:220px;">
+
+    <!-- Subtle spinning gradient ring -->
+    <span style="position:absolute;top:0;left:0;width:220px;height:220px;border-radius:50%;
+                 border:3px solid transparent;
+                 background:conic-gradient(from 0deg, #8e51f6, #9fb0cb, #9456fe);
+                 opacity:0.3;
+                 animation:spin 15s linear infinite; z-index:1;"></span>
+
+    <!-- Profile Image -->
+    <img src="karthi port.jpg" alt="Profile"
+         style="width:200px;height:200px;border-radius:50%;object-fit:cover;
+                border:5px solid var(--accent1);
+                box-shadow:0 8px 32px rgba(100, 64, 163, 0.25);
+                position:absolute;top:10px;left:10px;z-index:2;
+                transition:transform 0.3s ease, box-shadow 0.3s ease;" />
+  </div>
+
+  <!-- Brand / Name -->
+  <div class="brand" style="text-align:center;">
+    <div class="logo" style="font-size:28px;font-weight:bold;color:var(--accent1);margin-bottom:4px;">KS</div>
+    <div style="font-weight:800;font-size:20px;color:var(--text);">Karthika S</div>
+  </div>
+
+</div>
+
+<style>
+/* Subtle ring animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hover effect on profile image */
+div img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 48px rgba(124,58,237,0.35);
+}
+</style>
+<section class="hero" style="
+  width:100vw;
+  max-width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  padding:0;
+  display:flex;
+  justify-content:center;
+  margin-bottom:80px; /* Added spacing below hero */
+">
+  <div style="
+    width:100%;
+    max-width:960px;
+    text-align:center;
+    padding:0 24px;
+  ">
+    <h1 style="line-height:1.15;margin-bottom:16px; font-size:30px;">
+      Design-Driven Front End &<br>
+      <span style="color:var(--accent); font-size:30px;">Web Developer</span>
+    </h1>
+
+    <p class="lead" style="
+      margin:0 auto 20px;
+      max-width:720px;
+    ">
+      I build modern, scalable web experiences by combining refined UI/UX design
+      with clean, production-ready engineering. Focused on performance,
+      accessibility, and real-world usability.
+    </p>
+
+    <div class="ctas" style="justify-content:center;margin-bottom:16px">
+    </div>
+
+    <div style="color:var(--muted);font-size:13px">
+      <strong>Specialties:</strong>
+      Web Development • Frontend Engineering • Full-Stack • Machine Learning
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" style="padding-top:0;">
+  <!-- Your about content -->
+</section>
+
+
+  </header>
+
+  <main class="container">
+    <!-- About -->
+<section id="about" class="card fade-in">
+  <div class="about-grid">
+    <div>
+      <h2 style="margin-top:0">👤 About Me</h2>
+
+      <section style="max-width:720px;margin:0 auto;text-align:left;padding:24px 0;line-height:1.7;position:relative;">
+
+        <p style="font-size:18px;color:var(--text);margin-bottom:12px;">
+          💻 I am a ,<strong>Computer Science </strong>student exploring web development and AI/ML.  
+          I enjoy building clean, functional, and user-friendly applications. </p>
+
+        <p style="font-size:16px;color:#7a7a7a;margin-bottom:12px;">
+          💡 Guided by <strong>curiosity, analytical thinking, and creativity</strong>. I am driven by curiosity, problem-solving, and learning new technologies.</p>
+
+        <p style="font-size:16px;color:#7a7a7a;">
+          ✨ Motivated to apply my <strong> knowledge to real-world </strong>problems and learn from experienced teams.</p>
+
+        <!-- subtle decorative dots -->
+        <div style="position:absolute;top:0;right:0;opacity:0.05;font-size:100px;font-weight:bold;color:#fff;pointer-events:none;transform:rotate(-20deg);">
+          💻
+        </div>
+        <div style="position:absolute;bottom:0;left:0;opacity:0.05;font-size:80px;font-weight:bold;color:#fff;pointer-events:none;transform:rotate(10deg);">
+          🌐
+        </div>
+
+      </section>
+    </div>
+  </div>
+</section>
+          <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn btn-primary" href="Karthika Resume.pdf">Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+     <!-- Education -->
+  <section id="education" class="card fade-in">
+  <h2 style="margin-top:0">🎓Education</h2>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div style="font-weight:900">KPR Institute of Engineering and Technology-Coimbatore</div>
+      <div style="color:var(--muted);font-size:13px">
+        BE.CSE(Artificial Intelligence and Machine Learning) Graduating - 2028 . CGPA:8.23 
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div style="font-weight:900">Vellalar Matric Hr. Sec. School-Erode</div>
+      <div style="color:var(--muted);font-size:13px">
+        Mathematics and Computer Science - Higher Secondary . 88% . 2024
+      </div>
+    </div>
+
+  </div>
+</section>
+    <!--Skills-->
+<section id="skills" class="card fade-in">
+
+  <style>
+    .skills-list{
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      margin-top:18px;
+    }
+
+    .skill-row{
+      display:flex;
+      align-items:flex-start;
+      gap:16px;
+      padding:14px 16px;
+      border-radius:14px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      transition:0.25s ease;
+    }
+
+    .skill-row:hover{
+      background:linear-gradient(135deg,rgba(124,58,237,0.15),rgba(6,182,212,0.15));
+      transform:translateX(4px);
+    }
+
+    .skill-icon{
+      min-width:42px;
+      height:42px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      background:linear-gradient(135deg,#4704bb,#075f6e);
+      color:#fff;
+      font-weight:700;
+    }
+
+    .skill-content h4{
+      margin:0;
+      font-size:15px;
+      font-weight:800;
+    }
+
+    .skill-tags{
+      margin-top:6px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .skill-tag{
+      font-size:12px;
+      padding:5px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.08);
+      color:#e5e7eb;
+    }
+  </style>
+
+  <h2 style="margin-top:0">⚙️Skills</h2>
+  <p style="color:var(--muted);margin-bottom:12px">
+    Technical skills applied across real-world projects.
+  </p>
+
+  <div class="skills-list">
+
+    <div class="skill-row">
+      <div class="skill-icon">WD</div>
+      <div class="skill-content">
+        <h4>Web Development</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">JavaScript</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-icon">FE</div>
+      <div class="skill-content">
+        <h4>Frontend Development</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">UI / UX</span>
+          <span class="skill-tag">Performance</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-icon">FS</div>
+      <div class="skill-content">
+        <h4>Full-Stack Development</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">APIs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-icon">ML</div>
+      <div class="skill-content">
+        <h4>Machine Learning</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">AI</span>
+          <span class="skill-tag">Data</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Projects Section -->
+<section id="projects" class="card fade-in">
+  <h2 style="margin-top:0">📂 Projects</h2>
+  <p style="color:var(--muted);margin-top:6px;margin-bottom:18px">
+    Selected academic and personal projects with detailed documentation.
+  </p>
+
+  <div class="projects-grid">
+    <!-- PROJECT CARD -->
+    <div class="project" onclick="openProjectModal('smart-home')">
+      <div class="project-thumb">Smart Home Alert System</div>
+      <div style="margin-top:12px;font-weight:800">Smart System</div>
+      <div style="color:var(--muted);font-size:13px;margin-top:6px">
+        IoT-based alert solution providing real-time notifications through vibration, LED indicators, and mobile alerts.
+      </div>
+      <div class="tags">
+        <span class="tag">IoT</span>
+        <span class="tag">Embedded</span>
+        <span class="tag">Accessibility</span>
+      </div>
+      <div style="
+        margin-top:14px;
+        font-size:12px;
+        color:#6aa8ff;
+        font-weight:600;
+      ">
+        View full project →
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal for project details -->
+<div id="projectModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); overflow:auto; padding:40px; box-sizing:border-box;">
+  <div style="max-width:900px; margin:auto; background:#0a0f21; padding:24px; border-radius:8px; color:#e6edf3; position:relative;">
+    <span style="position:absolute; top:16px; right:16px; font-size:24px; cursor:pointer; color:#6aa8ff;" onclick="closeProjectModal()">&times;</span>
+    <div id="projectContent"></div>
+  </div>
+</div>
+
+<style>
+/* ===== MODAL FLOATING BACKGROUND EFFECT ===== */
+#projectModal .modal-box{
+  position:relative;
+  overflow:hidden;
+}
+
+/* Floating animated background */
+.floating-bg{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+}
+
+.floating-bg span{
+  position:absolute;
+  width:140px;
+  height:140px;
+  background:radial-gradient(circle, rgba(78,168,255,.28), transparent 65%);
+  filter:blur(22px);
+  opacity:.4;
+  animation:floatMove 20s linear infinite;
+}
+
+.floating-bg span:nth-child(1){ top:10%; left:12%; animation-duration:22s; }
+.floating-bg span:nth-child(2){ top:45%; left:70%; width:180px; height:180px; animation-duration:26s; }
+.floating-bg span:nth-child(3){ top:78%; left:22%; width:100px; height:100px; animation-duration:20s; }
+.floating-bg span:nth-child(4){ top:20%; left:55%; width:160px; height:160px; animation-duration:24s; }
+.floating-bg span:nth-child(5){ top:65%; left:50%; width:120px; height:120px; animation-duration:28s; }
+
+@keyframes floatMove{
+  0%{ transform:translateY(0) translateX(0); }
+  50%{ transform:translateY(-40px) translateX(30px); }
+  100%{ transform:translateY(0) translateX(0); }
+}
+
+/* Ensure content stays above background */
+#projectContent{
+  position:relative;
+  z-index:2;
+}
+
+.project-heading{
+  color:#6fb3ff;
+  font-weight:700;
+  margin-top:22px;
+}
+
+.project-para{
+  color:#ffffff;
+  line-height:1.7;
+  font-size:14px;
+}
+
+.project-list li{
+  color:#ffffff;
+  margin-bottom:6px;
+  line-height:1.6;
+}
+</style>
+
+<script>
+const projectData = {
+  "smart-home": {
+    name: "Smart Home Alert System",
+    monitors:"  Monitors home sensors and sends real-time notifications to a wristband and web dashboard📡.Control lights and stay updated on home safety anytime, anywhere.",
+    about: "🔔 Smart Home Alert System is an integrated home safety and automation solution that monitors doorbell activity, room temperature, water tank levels, LED lights, and air quality. It sends real-time notifications to both a wristband and a web dashboard, enabling users to control room lighting remotely and stay informed at all times.",
+    overview: "🧠 The Smart Home Alert System is a fully integrated safety and automation platform designed to enhance security, comfort, and real-time monitoring. Multiple sensors work together with a wearable wristband and a centralized web dashboard to deliver instant alerts and seamless home control.",
+    technologies: [
+      " Doorbell, temperature, water-level & air-quality sensors",
+      " ESP88 Wi-Fi connectivity",
+      " Aurdino ",
+      " Frontend: HTML, CSS, JavaScript",
+      " Database: Firebase / MySQL",
+      " MQTT / WebSockets for real-time alerts",
+      " Web dashboard & wearable integration"
+    ],
+    images: [
+      "smart project pic.jpg"
+    ],
+    videos: [
+      "smart project vedio.mp4"
+    ],
+    keyFeatures: [
+      " Instant alerts to wristband & web dashboard",
+      " LED lighting control",
+      " Continuous sensor-based monitoring",
+      " Unified real-time dashboard",
+      " Wearable wristband integration",
+      " Home safety & environment alerts"
+    ],
+    advantages: [
+      " Enhanced home safety & awareness",
+      " Remote automation & convenience",
+      " Live environmental monitoring",
+      " Energy-efficient device control",
+      " Clean, user-friendly interface"
+    ]
+  
+  }
+};
+
+function openProjectModal(id){
+  const p = projectData[id];
+  const c = document.getElementById('projectContent');
+
+  c.innerHTML = `
+  <div class="modal-wrap">
+
+    <!-- subtle dots layer -->
+    <div class="dot-layer"></div>
+
+    <!-- glow accent -->
+    <div class="hero-glow"></div>
+
+    <h1 class="title">🚀 ${p.name}</h1>
+    <p class="subtitle">${p.monitors}</p>
+
+    ${block("📘 About the Project", p.about)}
+    ${block("🧭 Project Overview", p.overview)}
+    ${listBlock("🛠️ Technologies Used", p.technologies)}
+    ${mediaBlock("🖼️ Project Images", p.images, "img")}
+    ${mediaBlock("🎬 Working Videos", p.videos, "video")}
+    ${listBlock("✨ Key Features", p.keyFeatures)}
+    ${listBlock("✅ Advantages", p.advantages)}
+
+  </div>
+  `;
+
+  document.getElementById('projectModal').style.display = 'block';
+}
+
+function block(title, text){
+  return `
+    <div class="glass-section">
+      <h2>${title}</h2>
+      <p>${text}</p>
+    </div>
+  `;
+}
+
+function listBlock(title, items){
+  return `
+    <div class="glass-section">
+      <h2>${title}</h2>
+      <ul>
+        ${items.map(i => `<li>${i}</li>`).join("")}
+      </ul>
+    </div>
+  `;
+}
+
+function mediaBlock(title, items, type){
+  return `
+    <div class="glass-section">
+      <h2>${title}</h2>
+      ${items.map(m =>
+        type === "img"
+        ? `<img src="${m}" class="media-img">`
+        : `<video controls class="media-video"><source src="${m}" type="video/mp4"></video>`
+      ).join("")}
+    </div>
+  `;
+}
+
+function closeProjectModal(){
+  document.getElementById('projectModal').style.display = 'none';
+}
+
+/* MODAL-ONLY STYLES */
+const style = document.createElement("style");
+style.innerHTML = `
+.modal-wrap{
+  position:relative;
+  animation:fadeUp .7s ease;
+  overflow:hidden;
+}
+
+/* subtle animated dots */
+.dot-layer{
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(circle, rgba(78,168,255,.15) 1px, transparent 1px);
+  background-size:28px 28px;
+  opacity:.12;
+  animation:dotMove 20s linear infinite;
+  pointer-events:none;
+}
+
+/* blue glow */
+.hero-glow{
+  position:absolute;
+  top:-120px;
+  right:-120px;
+  width:320px;
+  height:320px;
+  background:radial-gradient(circle,#4ea8ff55,transparent 70%);
+  filter:blur(45px);
+  animation:floatGlow 6s ease-in-out infinite;
+}
+
+.title{
+  color:#4ea8ff;
+  font-weight:900;
+  position:relative;
+}
+
+.subtitle{
+  color:#ffffff;
+  opacity:.9;
+  margin-top:6px;
+  position:relative;
+}
+
+.glass-section{
+  margin-top:28px;
+  padding:20px;
+  border-radius:16px;
+  background:linear-gradient(180deg,rgba(78,168,255,.10),rgba(255,255,255,.02));
+  backdrop-filter:blur(10px);
+  box-shadow:0 12px 34px rgba(0,0,0,.4);
+  transition:.4s;
+  position:relative;
+}
+
+.glass-section:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 44px rgba(78,168,255,.28);
+}
+
+.glass-section h2{
+  color:#6fb3ff;
+  font-weight:800;
+}
+
+.glass-section p,
+.glass-section li{
+  color:#ffffff;
+  line-height:1.75;
+}
+
+.media-img,
+.media-video{
+  width:100%;
+  border-radius:14px;
+  margin-top:14px;
+  transition:.4s;
+}
+
+.media-img:hover,
+.media-video:hover{
+  transform:scale(1.03);
+  box-shadow:0 0 42px rgba(78,168,255,.45);
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(18px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes floatGlow{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(20px);}
+}
+
+@keyframes dotMove{
+  from{background-position:0 0;}
+  to{background-position:120px 120px;}
+}
+`;
+document.head.appendChild(style);
+</script>
+
+     <!-- pattern -->
+<section id="published-pattern" class="fade-in">
+
+  <style>
+    /* ===== Published Pattern Style ===== */
+    .pattern-showcase{
+      margin-top:48px;
+      padding:26px;
+      border:1px solid rgba(255,255,255,0.18);
+      background:#030b26;
+    }
+
+    .pattern-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:20px;
+      margin-bottom:20px;
+    }
+
+    .pattern-header h2{
+      margin:0;
+    }
+
+    .pattern-header p{
+      margin:6px 0 0;
+      color:var(--muted);
+      max-width:600px;
+      font-size:14px;
+    }
+
+    .pattern-open{
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:0.12em;
+      color:#0c72ee;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+
+    .pattern-preview{
+      margin-top:18px;
+      border:1px dashed rgba(255,255,255,0.25);
+      background:hsl(195, 82%, 33%);
+      padding:10px;
+    }
+
+    .pattern-preview img{
+      width:100%;
+      display:block;
+    }
+
+    .pattern-meta{
+      margin-top:14px;
+      font-size:13px;
+      color:var(--muted);
+      display:flex;
+      gap:22px;
+      flex-wrap:wrap;
+    }
+  </style>
+
+  <div class="pattern-showcase">
+
+    <div class="pattern-header">
+      <div>
+        <h2>📜Published Project Pattern</h2>
+        <p>
+          Official system pattern and design structure used in project development.
+        </p>
+      </div>
+
+      <div class="pattern-open"
+           onclick="openPattern('patent .pdf')">
+        OPEN PDF →
+      </div>
+    </div>
+
+    <!-- Preview Image of the Pattern -->
+    <div class="pattern-preview"
+         onclick="openPattern('project pre.pdf')">
+      <img src="patent.pdf"
+           alt="Project Pattern Preview">
+    </div>
+
+    <div class="pattern-meta">
+      <div><strong>Format:</strong> PDF</div>
+      <div><strong>Category:</strong> Design Pattern</div>
+      <div><strong>Status:</strong> Published</div>
+    </div>
+
+  </div>
+
+  <script>
+    function openPattern(file){
+      window.open(file, '_blank');
+    }
+  </script>
+
+</section>
+
+    <!-- Tools -->
+    <section id="tools" class="card fade-in">
+      <h2 style="margin-top:0">🛠️Tools</h2>
+      <p style="color:var(--muted);margin-top:6px">Design and development tools I use daily.</p>
+
+      <div class="tools">
+        <div class="tool"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma"><span>Figma</span></div>
+        <div class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><span>HTML</span></div>
+        <div class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><span>CSS</span></div>
+        <div class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JS"><span>JavaScript</span></div>
+        <div class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><span>React</span></div>
+        <div class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node"><span>Node.js</span></div>
+        <div class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
+        <div class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div>
+        <div class="tool"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div>
+      </div>
+    </section>
+
+    <section id="certificates" class="card fade-in">
+
+  <style>
+    .view-cert-btn{
+      margin-top:16px;
+      padding:12px 22px;
+      border-radius:12px;
+      border:none;
+      cursor:pointer;
+      font-weight:700;
+      color:#fff;
+      background:linear-gradient(90deg,#7c3aed,#06b6d4);
+    }
+
+    /* Certificates modal */
+    #certModal, #imgModal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.85);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:999;
+    }
+
+    .cert-box{
+      background:#081225;
+      padding:22px;
+      border-radius:16px;
+      max-width:1000px;
+      width:90%;
+      max-height:90vh;
+      overflow-y:auto;
+    }
+
+    .cert-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
+      margin-top:16px;
+    }
+
+    /* Certificate card */
+    .cert-card{
+      position:relative;
+      border-radius:12px;
+      overflow:hidden;
+      cursor:pointer;
+      box-shadow:0 10px 24px rgba(0,0,0,0.4);
+      transition:transform 0.3s;
+    }
+
+    .cert-card:hover{
+      transform:translateY(-4px);
+    }
+
+    .cert-img{
+      width:100%;
+      height:150px;
+      object-fit:contain;
+      background:#fff;
+      padding:8px;
+    }
+
+    /* Description popup */
+    .cert-info{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,rgba(10,15,33,0.85),rgba(10,15,33,0.95));
+      color:#fff;
+      padding:14px;
+      opacity:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      text-align:center;
+      transition:opacity 0.3s;
+    }
+
+    .cert-card:hover .cert-info{
+      opacity:1;
+    }
+
+    .cert-info h4{
+      color:#6fb3ff;
+      font-size:15px;
+      margin-bottom:6px;
+    }
+
+    .cert-info p{
+      font-size:12px;
+      color:#c0c8e0;
+      line-height:1.4;
+    }
+
+    /* Image viewer */
+    .img-view{
+      max-width:90%;
+      max-height:90vh;
+      border-radius:12px;
+      background:#fff;
+      padding:8px;
+    }
+  </style>
+
+  <h2>✔️ Certificates</h2>
+  <p style="color:var(--muted)">
+    Earned certifications that validate knowledge acquisition, practical understanding, and dedication to personal and professional growth.
+  </p>
+
+  <button class="view-cert-btn" onclick="openCertModal()">View Certificates</button>
+
+  <!-- Certificates Modal -->
+  <div id="certModal">
+    <div class="cert-box">
+
+      <button onclick="closeCertModal()"
+        style="float:right;background:none;border:none;color:#aaa;font-size:16px;cursor:pointer">
+        ✕ Close
+      </button>
+
+      <h2 style="color:#6fb3ff">All Certificates</h2>
+
+      <div class="cert-grid">
+
+        <!-- Certificate 1 -->
+        <div class="cert-card" onclick="openImg('kongu cert.jpg')">
+          <img src="kongu cert.jpg" class="cert-img">
+          <div class="cert-info">
+            <h4>Symposium</h4>
+            <p>Participated in technical training and skill development sessions conducted at Kongu Engineering College.</p>
+          </div>
+        </div>
+
+        <!-- Certificate 2 -->
+        <div class="cert-card" onclick="openImg('simplearn cert.jpg')">
+          <img src="simplearn cert.jpg" class="cert-img">
+          <div class="cert-info">
+            <h4>Skill Development</h4>
+            <p>Completed professional certification from Simplilearn covering core technology fundamentals.</p>
+          </div>
+        </div>
+
+        <!-- Certificate 3 -->
+        <div class="cert-card" onclick="openImg('bannari cert.jpg')">
+          <img src="bannari cert.jpg" class="cert-img">
+          <div class="cert-info">
+            <h4>Workshop</h4>
+            <p>Hands-on learning and academic exposure at Bannari Amman Institute of Technology.</p>
+          </div>
+        </div>
+
+        <!-- Certificate 4 -->
+        <div class="cert-card" onclick="openImg('spoken cert.jpg')">
+          <img src="spoken cert.jpg" class="cert-img">
+          <div class="cert-info">
+            <h4>Spoken Tutorial</h4>
+            <p>Certified training in spoken tutorial project at IIT Bombay of C and Cpp.</p>
+          </div>
+        </div>
+
+        <!-- Certificate 5 -->
+        <div class="cert-card" onclick="openImg('nptel certificate.jpg')">
+          <img src="nptel certificate.jpg" class="cert-img">
+          <div class="cert-info">
+            <h4>NPTEL Course</h4>
+            <p>Successfully completed an NPTEL-certified course with academic excellence.</p>
+          </div>
+        </div>
+
+        <div class="cert-card" onclick="openImg('nptel certificate.jpg')">
+          <img src="Screenshot (29).png" class="cert-img">
+          <div class="cert-info">
+            <h4>Spoken Tutorial - Edu Pyramids</h4>
+            <p>Certified training in spoken tutorial project at IIT Bombay of RDBMS PostgreSQL certificate.</p>
+          </div>
+        </div>
+
+         <div class="cert-card" onclick="openImg('nptel certificate.jpg')">
+          <img src="Screenshot (30).png" class="cert-img">
+          <div class="cert-info">
+            <h4>Spoken Tutorial - Edu Pyramids</h4>
+            <p>Certified training in spoken tutorial project at IIT Bombay of JAVA Training.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Image Viewer Modal -->
+  <div id="imgModal" onclick="closeImg()">
+    <img id="imgView" class="img-view">
+  </div>
+
+  <script>
+    function openCertModal(){
+      document.getElementById("certModal").style.display="flex";
+    }
+
+    function closeCertModal(){
+      document.getElementById("certModal").style.display="none";
+    }
+
+    function openImg(src){
+      document.getElementById("imgView").src = src;
+      document.getElementById("imgModal").style.display = "flex";
+    }
+
+    function closeImg(){
+      document.getElementById("imgModal").style.display = "none";
+    }
+  </script>
+
+</section>
+
+<section id="achievements" class="card fade-in">
+
+  <style>
+    /* ===== Achievement Spotlight Style ===== */
+    .achievement-spotlight{
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+      margin-top:20px;
+    }
+
+    .spotlight{
+      position:relative;
+      padding:22px 26px;
+      border-radius:18px;
+      background:linear-gradient(120deg,
+        rgba(124,58,237,0.18),
+        rgba(6,182,212,0.18)
+      );
+      border:1px solid rgba(255,255,255,0.08);
+      cursor:pointer;
+      overflow:hidden;
+      transition:0.35s ease;
+    }
+
+    .spotlight::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.12),
+        transparent
+      );
+      transform:translateX(-100%);
+      transition:0.6s ease;
+    }
+
+    .spotlight:hover::after{
+      transform:translateX(100%);
+    }
+
+    .spotlight:hover{
+      transform:scale(1.02);
+      box-shadow:0 20px 50px rgba(0,0,0,0.6);
+    }
+
+    .spotlight small{
+      color:#c7d2fe;
+      font-weight:700;
+      letter-spacing:0.12em;
+      font-size:11px;
+    }
+
+    .spotlight h3{
+      margin:8px 0 6px;
+      font-size:22px;
+      font-weight:900;
+    }
+
+    .spotlight p{
+      margin:0;
+      color:#e5e7eb;
+      font-size:14px;
+      max-width:720px;
+    }
+
+    .spotlight .arrow{
+      position:absolute;
+      right:22px;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:22px;
+      opacity:0.7;
+    }
+
+    /* ===== Gallery Modal ===== */
+    #achGallery{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.85);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:999;
+    }
+
+    #achGallery img{
+      max-width:90%;
+      max-height:90vh;
+      border-radius:14px;
+      background:#fff;
+      padding:10px;
+    }
+
+    .ach-btn{
+      position:absolute;
+      background:none;
+      border:none;
+      color:#fff;
+      font-size:32px;
+      cursor:pointer;
+      padding:12px;
+    }
+
+    .ach-close{top:20px;right:24px;font-size:22px}
+    .ach-prev{left:24px}
+    .ach-next{right:24px}
+
+    @media(max-width:720px){
+      .spotlight h3{font-size:18px}
+      .spotlight .arrow{display:none}
+    }
+  </style>
+
+  <h2 style="margin-top:0">🏅Achievements</h2>
+  <p style="color:var(--muted)">
+    Recognitions that demonstrate academic excellence, innovation, and impact.
+  </p>
+
+  <div class="achievement-spotlight">
+
+    <div class="spotlight"
+      onclick="openAchievement([
+        'karpagam cert.jpg',
+        'kar win.jpg',
+      ])">
+      <small>Project Exhibition</small>
+      <h3>National Level Technical Project Expo Award</h3>
+      <p>
+        Won third prize with a cash award at the National Level Technical Project Exhibition (TECHNOMIND-2K25), Karpagam Institute of Technology, Coimbatore.
+      </p>
+      <div class="arrow">➜</div>
+    </div>
+
+    <div class="spotlight"
+      onclick="openAchievement([
+        'cmr cert.jpg',
+        'smart project pic.jpg',
+        'hack 2.jpg',
+        'hack 1.jpg',
+        'win cmr.jpg'
+      ])">
+      <small>COMPETITION</small>
+      <h3>Hackathon Project Recognition</h3>
+      <p>
+        Won Price with Case Award and it delivered a functional solution under time constraints,
+        showcasing teamwork, creativity, and problem-solving skills.
+      </p>
+      <div class="arrow">➜</div>
+    </div>
+
+    <div class="spotlight"
+      onclick="openAchievement([
+        'type.jpg'
+      ])">
+      <small>TYPING INNOVATION</small>
+      <h3>Junior Grade</h3>
+      <p>
+        First Class With Distinction in the Government Technical Examination of Commerce Subjects Held in Aug 2024 
+      </p>
+      <div class="arrow">➜</div>
+    </div>
+    <div class="spotlight"
+      onclick="openAchievement([
+        'memo 2.jpg',
+        'memo.jpg'
+      ])">
+      <small>SHOWCASED</small>
+      <h3>PRAISING</h3>
+      <p>
+        The project was showcased to corporate professionals, who appreciated the work and presented a small gift as a token of recognition.
+      </p>
+      <div class="arrow">➜</div>
+    </div>
+
+
+  </div>
+
+  <!-- ===== Modal Gallery ===== -->
+  <div id="achGallery">
+    <button class="ach-btn ach-close" onclick="closeAchievement()">✕</button>
+    <button class="ach-btn ach-prev" onclick="prevAch()">‹</button>
+    <img id="achImage">
+    <button class="ach-btn ach-next" onclick="nextAch()">›</button>
+  </div>
+
+  <script>
+    let achImages = [];
+    let achIndex = 0;
+
+    function openAchievement(images){
+      achImages = images;
+      achIndex = 0;
+      document.getElementById('achImage').src = achImages[0];
+      document.getElementById('achGallery').style.display = 'flex';
+    }
+
+    function closeAchievement(){
+      document.getElementById('achGallery').style.display = 'none';
+    }
+
+    function nextAch(){
+      achIndex = (achIndex + 1) % achImages.length;
+      document.getElementById('achImage').src = achImages[achIndex];
+    }
+
+    function prevAch(){
+      achIndex = (achIndex - 1 + achImages.length) % achImages.length;
+      document.getElementById('achImage').src = achImages[achIndex];
+    }
+
+    document.addEventListener('keydown', e => {
+      if(e.key === 'Escape') closeAchievement();
+    });
+  </script>
+
+</section>
+
+
+    <!-- Code Section -->
+  <!-- Font Awesome (required for icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<section id="coding-profiles" class="card fade-in">
+
+  <style>
+    .coding-grid{
+      display:flex;
+      justify-content:center;
+      gap:28px;
+      flex-wrap:wrap;
+      margin-top:20px;
+    }
+
+    .coding-link{
+      width:200px;
+      height:200px;
+      border-radius:18px;
+      background:#0b1226;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,0.08);
+      text-decoration:none;
+      transition:0.3s ease;
+    }
+
+    .coding-link i{
+      font-size:40px;
+      transition:0.3s ease;
+    }
+
+    .coding-link:hover{
+      transform:translateY(-8px) scale(1.1);
+      box-shadow:0 12px 30px rgba(0,0,0,0.5);
+    }
+
+    .leetcode i{ color:#f89f1b; }
+    .hackerrank i{ color:#00ea64; }
+    .gfg i{ color:#2f8d46; }
+    .skillrack i{ color:#3b82f6; }
+  </style>
+
+  <h2 style="margin-top:0">🧑‍💻Coding Profiles</h2>
+  <p style="color:var(--muted)">
+    Competitive programming & practice platforms
+  </p>
+
+  <div class="coding-grid">
+
+    <a href="https://leetcode.com/your-username" target="_blank" class="coding-link leetcode" title="LeetCode">
+      <i class="fa-solid fa-code"></i>
+    </a>
+
+    <a href="https://www.hackerrank.com/profile/karthikas2566" target="_blank" class="coding-link hackerrank" title="HackerRank">
+      <i class="fa-brands fa-hackerrank"></i>
+    </a>
+
+    <a href="https://www.geeksforgeeks.org/profile/karthikfz7b" target="_blank" class="coding-link gfg" title="GeeksforGeeks">
+      <i class="fa-solid fa-graduation-cap"></i>
+    </a>
+
+    <a href="https://www.skillrack.com/faces/resume.xhtml?id=531488&key=6980a22331ee0de704df029a9fa91cb80d6cd49a" target="_blank" class="coding-link skillrack" title="SkillRack">
+      <i class="fa-solid fa-laptop-code"></i>
+    </a>
+
+  </div>
+
+</section>
+    <!-- Contact -->
+<section
+  style="
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    margin-top:32px;
+  "
+>
+
+  <!-- CONTACT ASIDE (UNCHANGED) -->
+<aside>
+  <div style="
+    padding:18px;
+    border-radius:14px;
+    background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.08);
+  ">
+
+    <h3 style="margin:0 0 10px">Let’s Connect</h3>
+
+    <p style="color:var(--muted);margin-top:0">
+      I’m currently open to internships, freelance projects, and collaborative work.
+    </p>
+
+    <div style="margin-top:16px;font-size:14px">
+      <p style="margin:6px 0;color:var(--muted)">
+        📧 <strong>Email:</strong> karthikas2566@gmail.com
+      </p>
+      <p style="margin:6px 0;color:var(--muted)">
+        🔗 <strong>LinkedIn:</strong>
+        <a href="https://www.linkedin.com/in/karthika-senthil-kumar-429472329/" target="_blank">
+          linkedin.com/in/karthika
+        </a>
+      </p>
+      <p style="margin:6px 0;color:var(--muted)">
+        💻 <strong>GitHub:</strong>
+        <a href="https://github.com/karthika2566" target="_blank">github.com/in/karthika</a>
+      </p>
+    </div>
+
+    <!-- DOWNLOAD RESUME BUTTON -->
+    <div style="text-align:center;margin-top:16px;">
+      <a href="Karthika Resume.pdf" download
+         style="padding:10px 20px;
+                background:linear-gradient(135deg,#0d75f4,#6aa8ff);
+                color:white;
+                font-weight:600;
+                border-radius:10px;
+                text-decoration:none;">
+        ⬇️ Download Resume
+      </a>
+    </div>
+
+    <div class="socials" style="margin-top:16px">
+      <a href="#" title="GitHub">GH</a>
+      <a href="#" title="LinkedIn">IN</a>
+      <a href="#" title="Twitter">TW</a>
+    </div>
+
+  </div>
+</aside>
+
+
+<!-- CONTACT FORM -->
+<form
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  style="
+    padding:22px;
+    border-radius:14px;
+    background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.1);
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  "
+>
+  <!-- Web3Forms -->
+  <input type="hidden" name="access_key" value="fef0892f-26cc-446c-a353-f4f460e20da4">
+  <input type="hidden" name="subject" value="📩 New Portfolio Message">
+  <input type="hidden" name="from_name" value="Karthika Portfolio">
+  <input type="hidden" name="replyto" value="{{email}}">
+  <input type="checkbox" name="botcheck" style="display:none">
+
+  <h3 style="margin:0">Send a Message</h3>
+
+  <input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    required
+    style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:#0b1022;color:white;"
+  >
+
+  <input
+    type="email"
+    name="email"
+    placeholder="Your Email"
+    required
+    style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:#0b1022;color:white;"
+  >
+
+  <textarea
+    name="message"
+    rows="5"
+    placeholder="Your Message"
+    required
+    style="padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:#0b1022;color:white;resize:none;"
+  ></textarea>
+
+  <button
+    type="submit"
+    style="
+      padding:12px;
+      border-radius:10px;
+      border:none;
+      background:linear-gradient(135deg,#4f7cff,#6aa8ff);
+      color:white;
+      font-weight:600;
+      cursor:pointer;
+    "
+  >
+    Send Message →
+  </button>
+
+</form>
+
+
+  </main>
+
+  <footer class="container">
+    <div style="padding:18px 0;color:var(--muted);text-align:center">© <strong>Karthika</strong> — Crafted with care • Premium UI & UX</div>
+  </footer>
+
+  <!-- Project Modal -->
+  <div id="projectModal" style="position:fixed;inset:0;background:rgba(1,2,6,0.75);display:none;align-items:center;justify-content:center;z-index:60;padding:18px">
+    <div style="max-width:980px;width:100%;background:linear-gradient(180deg,#071019,#081225);border-radius:14px;padding:18px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 40px 120px rgba(2,6,23,0.7);position:relative">
+      <button id="closeModal" style="position:absolute;right:12px;top:12px;padding:10px;border-radius:8px;border:0;background:transparent;color:var(--muted);cursor:pointer">Close</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script>
+    // intersection observer for in-view animations
+    const obs = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('inview')})},{threshold:.12});
+    document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+    // animate skill bars on load
+    window.addEventListener('load',()=>{document.querySelectorAll('.fill').forEach((f,i)=>{setTimeout(()=>{f.style.width=f.style.width},240+i*120)})});
+
+    // project modal
+    const modal = document.getElementById('projectModal');
+    const modalContent = document.getElementById('modalContent');
+    document.querySelectorAll('.project').forEach(card=>{
+      card.addEventListener('click',()=>openProject(card));
+      card.addEventListener('keydown',e=>{ if(e.key==='Enter') openProject(card) });
+    });
+
+    function openProject(card){
+      const data = JSON.parse(card.dataset.project);
+      modalContent.innerHTML = `
+        <h2 style="margin:0 0 6px">${data.title}</h2>
+        <div style="color:var(--muted);font-size:13px;margin-bottom:12px">${data.role} • ${data.tools || ''}</div>
+        <div style="display:flex;gap:18px;flex-wrap:wrap">
+          <div style="flex:1;min-width:260px">
+            <h4 style="margin:0 0 6px">Problem</h4>
+            <p style="color:var(--muted)">${data.problem || '—'}</p>
+            <h4 style="margin:12px 0 6px">Approach</h4>
+            <p style="color:var(--muted)">${data.approach || '—'}</p>
+            <h4 style="margin:12px 0 6px">Wireframes</h4>
+            <p style="color:var(--muted)">${data.wireframes || '—'}</p>
+            <h4 style="margin:12px 0 6px">Outcome</h4>
+            <p style="color:var(--muted)">${data.outcome || '—'}</p>
+          </div>
+          <div style="width:340px;min-width:240px">
+            <div style="height:180px;border-radius:10px;background:linear-gradient(135deg,#08131b,#0b2432);border:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;color:var(--muted)">Mockups / Final Screens</div>
+            <div style="margin-top:12px;font-size:13px;color:var(--muted)">Tools: <strong>${data.tools || '—'}</strong></div>
+          </div>
+        </div>
+      `;
+      modal.style.display='flex';
+    }
+
+    document.getElementById('closeModal').addEventListener('click',()=>modal.style.display='none');
+    window.addEventListener('keydown',e=>{ if(e.key==='Escape') modal.style.display='none' });
+
+    // subtle parallax for hero mockup
+    const mockup = document.querySelector('.mockup');
+    document.addEventListener('mousemove',(e)=>{
+      const {innerWidth, innerHeight} = window;
+      const rx = (e.clientX - innerWidth/2) / (innerWidth/2);
+      const ry = (e.clientY - innerHeight/2) / (innerHeight/2);
+      if(mockup) mockup.style.transform = `translate3d(${rx*6}px, ${ry*6}px, 0) rotateX(${ry*2}deg) rotateY(${rx*2}deg)`;
+    });
+  </script>
+</body>
+</html>
